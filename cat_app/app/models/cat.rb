@@ -1,5 +1,7 @@
-
+require "action_view"
+require "action_view/helpers"
 class Cat < ApplicationRecord
+    include ActionView::Helpers::DateHelper
 
     COLORS = ["blue", "red", "yellow", "white", "green", "black"]
 
@@ -8,6 +10,7 @@ class Cat < ApplicationRecord
     validates_presence_of :color, :birth_date, :name, :sex, :description
 
     def age
-        time_ago_words(self.birth_date)
+        time_ago_in_words(self.birth_date)
     end 
+
 end 
