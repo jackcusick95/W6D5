@@ -3,5 +3,6 @@
 <ul> 
   <% @cats.each do |kitty| %>
     <li><%= kitty.name %></li>
+    <a href="<%= cat_url(kitty) %>">Show Cat</a>
   <% end %>
 </ul>
