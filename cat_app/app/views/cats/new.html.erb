@@ -1,4 +1,32 @@
+
+
 <form action="<%= new_cat_url %>" method="post"> 
   <label for="cat_name">Name</label>
   <input id="cat_name" type="text" name="@cat[:name]" value=" <%= @cat.name %>">
+
+ <div>
+
+  <p> Select a gender: </p>
+
+  <div>
+
+  <input type="radio" id="Male" name="@cat[:sex]" value="M">
+  <label for="Male">Male</label>
+
+  <div>
+  <div>
+
+  <input type="radio" id="Female" name="@cat[:sex]" value="F">
+  <label for="Female">Female</label>
+
+  <div>
+
+  <label for="color"> Select a color: </label>
+
+  <select id="color" name="@cat[:color]">
+    <option disabled selected>Please select</option>
+    <% Cat::COLORS.each do |color| %>
+      <option value="<%= color %>"><%= color %></option>
+    <% end %>
+  </select>
 </form>
