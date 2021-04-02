@@ -1,6 +1,6 @@
 
 
-<form action="<%= new_cat_url %>" method="post"> 
+<form action="cats_url" method="post"> 
   <label for="cat_name">Name</label>
   <input id="cat_name" type="text" name="@cat[:name]" value=" <%= @cat.name %>">
 
@@ -20,13 +20,30 @@
   <label for="Female">Female</label>
 
   <div>
+  <br>
 
   <label for="color"> Select a color: </label>
 
   <select id="color" name="@cat[:color]">
-    <option disabled selected>Please select</option>
+    <option disabled selected>--Select a color--</option>
     <% Cat::COLORS.each do |color| %>
       <option value="<%= color %>"><%= color %></option>
     <% end %>
   </select>
+  
+  <div>
+  <br>
+  <label for="birthday">Select birthday:</label>
+  <input type="date" id="birthday" name="@cat[:birth_date]" value="<%= Time.now %>" min="1950-01-01" max="<%= Time.now %>">
+  
+  <div>
+  <br>
+  <label for="description">Description of cat: </label>
+  <div>
+  <textarea name="@cat[:description]">
+      <%= @cat.description %>
+  </textarea>
+  
+  <div>
+  <input type="submit" value="Create cat"
 </form>
