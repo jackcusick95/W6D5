@@ -1,8 +1,8 @@
 
 
-<form action="cats_url" method="post"> 
+<form action="/cats" method="post"> 
   <label for="cat_name">Name</label>
-  <input id="cat_name" type="text" name="@cat[:name]" value=" <%= @cat.name %>">
+  <input id="cat_name" type="text" name="cat[name]" value=" <%= @cat.name %>">
 
  <div>
 
@@ -10,13 +10,13 @@
 
   <div>
 
-  <input type="radio" id="Male" name="@cat[:sex]" value="M">
+  <input type="radio" id="Male" name="cat[sex]" value="M">
   <label for="Male">Male</label>
 
   <div>
   <div>
 
-  <input type="radio" id="Female" name="@cat[:sex]" value="F">
+  <input type="radio" id="Female" name="cat[sex]" value="F">
   <label for="Female">Female</label>
 
   <div>
@@ -24,7 +24,7 @@
 
   <label for="color"> Select a color: </label>
 
-  <select id="color" name="@cat[:color]">
+  <select id="color" name="cat[color]">
     <option disabled selected>--Select a color--</option>
     <% Cat::COLORS.each do |color| %>
       <option value="<%= color %>"><%= color %></option>
@@ -34,16 +34,18 @@
   <div>
   <br>
   <label for="birthday">Select birthday:</label>
-  <input type="date" id="birthday" name="@cat[:birth_date]" value="<%= Time.now %>" min="1950-01-01" max="<%= Time.now %>">
+  <input type="date" id="birthday" name="cat[birth_date]" value="<%= Time.now %>" min="1950-01-01" max="<%= Time.now %>">
   
   <div>
   <br>
   <label for="description">Description of cat: </label>
   <div>
-  <textarea name="@cat[:description]">
+  <textarea name="cat[description]">
       <%= @cat.description %>
   </textarea>
   
   <div>
-  <input type="submit" value="Create cat"
+  <br>
+
+  <input type="submit" value="Create cat">
 </form>
